@@ -19,6 +19,10 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Set up Requirements
+        run:
+          pip install -r requirements.txt
+
       - name: Run Tests
         run:
           python manage.py test # запуск тестов
