@@ -27,7 +27,7 @@ class CatalogTest(TestCase):
         self.assertEqual(str(self.category), 'Торты')
 
     def test_discount_price_calculation(self):
-        self.assertEqual(self.product.discount_percent, Decimal('900.00'))
+        self.assertEqual(self.product.discount_price, Decimal('900.00'))
 
     def test_homepage(self):
         response = self.client.get(reverse('home'))
