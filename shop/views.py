@@ -36,7 +36,7 @@ def category_list(request):
 def category_detail(request, slug):
     category = get_object_or_404(Category, slug=slug, is_active=True)
     product = category.products.filter(is_active=True)
-    return render(request, 'shop/category_detail.html', {
+    return render(request, 'shop/product_list.html', {
         'category': category,
         'product': product,
         'breadcrumbs': [
@@ -64,7 +64,7 @@ def product_detail(request, slug):
 
 def promotion_view(request):
     promotions = Product.objects.filter(is_active=True, discount_percent__gt=0).order_by('-discount_percent')
-    return render(request, 'shop/promotion_list.html', {
+    return render(request, 'shop/promotions.html', {
         'promotions': promotions,
         'breadcrumbs': [
             {'title': 'Главная', 'url': '/'},

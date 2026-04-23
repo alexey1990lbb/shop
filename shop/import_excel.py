@@ -41,8 +41,8 @@ def import_from_excel(excel_file):
                 name = str(row[0]).strip()
                 category_name = str(row[1]).strip() if len(row) > 1 and row[1] else ''
                 description = str(row[2]).strip() if len(row) > 2 and row[2] else ''
-                price = float(row[3]) if len(row) > 3 and row[3] else ''
-                discount = int(row[4]) if len(row) > 4 and row[4] else ''
+                price = float(row[3]) if len(row) > 3 and row[3] else 0
+                discount = int(row[4]) if len(row) > 4 and row[4] else 0
                 is_active = True
                 try:
                     category = Category.objects.get(name=category_name)
