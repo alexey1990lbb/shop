@@ -16,8 +16,8 @@ jobs:
         image: postgres:15
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: test_db
+          POSTGRES_PASSWORD: 1234
+          POSTGRES_DB: shop_db
         ports:
           - 5432:5432
         options: >-
@@ -51,9 +51,9 @@ jobs:
         run:
           python manage.py migrate
         env:
-          DB_NAME: test_db
+          DB_NAME: shop_db
           DB_USER: postgres
-          DB_PASSWORD: postgres
+          DB_PASSWORD: 1234
           DB_HOST: localhost
           DB_PORT: 5432
           DEBUG: 'False'
@@ -62,9 +62,9 @@ jobs:
         run:
           python manage.py test # запуск тестов
         env:
-          DB_NAME: test_db
+          DB_NAME: shop_db
           DB_USER: postgres
-          DB_PASSWORD: postgres
+          DB_PASSWORD: 1234
           DB_HOST: localhost
           DB_PORT: 5432
           DEBUG: 'False'
