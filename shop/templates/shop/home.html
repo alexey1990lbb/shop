@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Магазин</title>
 </head>
 <body>
+    <h1>Добро пожаловать в магазин!</h1>
 
+    {% for product in popular_products %}
+        <div>{{ product.name }}</div>
+    {% endfor %}
+
+    <!--Для теста-->
+    <div>Медовик</div>
 </body>
 </html>

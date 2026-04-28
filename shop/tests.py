@@ -30,7 +30,7 @@ class CatalogTest(TestCase):
         self.assertEqual(self.product.discount_price, Decimal('900.00'))
 
     def test_homepage(self):
-        response = self.client.get(reverse('home'))
+        response = self.client.get(reverse('shop:home'))
         self.assertEqual(response.status_code, 200)
 
     def test_category_detail_view(self):

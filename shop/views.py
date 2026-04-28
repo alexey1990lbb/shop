@@ -4,20 +4,21 @@ from .models import Category, Product
 
 
 def home_view(request):
-    popular_products = Product.objects.filter(is_active=True).annotate(total_order=Sum('orderitem__quantity')).order_by(
-        '-total_order')[:5]
-    if popular_products.count() < 5:
-        extra = Product.objects.filter(is_active=True).exclude(
-            id__in=[p.id for p in popular_products]
-        ).order_by('-created_at')[:5 - popular_products.count()]
-        from itertools import chain  # утилита для объединения списка
-        popular_products = list(chain(popular_products, extra))
+    # popular_products = Product.objects.filter(is_active=True).annotate(total_order=Sum('orderitem__quantity')).order_by(
+    #     '-total_order')[:5]
+    # if popular_products.count() < 5:
+    #     extra = Product.objects.filter(is_active=True).exclude(
+    #         id__in=[p.id for p in popular_products]
+    #     ).order_by('-created_at')[:5 - popular_products.count()]
+    #     from itertools import chain  # утилита для объединения списка
+    #     popular_products = list(chain(popular_products, extra))
 
     promotions = Product.objects.filter(is_active=True, discount_percent__gt=0).order_by('-discount_percent')
 
     categories = Category.objects.filter(is_active=True)
     return render(request, 'shop/home.html',
-                  {'popular_products': popular_products,
+                  {
+                        # 'popular_products': popular_products,
                           'promotions': promotions,
                           'categories': categories,
                           'breadcrumbs': [{'title': 'Главная', 'url': '/'}]})
