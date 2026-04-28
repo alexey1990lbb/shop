@@ -37,4 +37,4 @@ class CatalogTest(TestCase):
         url = reverse('shop:category-detail', kwargs={'slug': self.category.slug})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 200)
+        self.assertContains(response, 'Медовик')
