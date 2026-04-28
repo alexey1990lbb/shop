@@ -14,7 +14,7 @@ class CatalogTest(TestCase):
             slug='torty'
         )
         self.product = Product.objects.create(
-            name='Медовик',
+            name='Medovik',
             slug='medovik',
             category=self.category,
             price=Decimal('1000.00'),
@@ -37,4 +37,4 @@ class CatalogTest(TestCase):
         url = reverse('shop:category-detail', kwargs={'slug': self.category.slug})
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, 'Медовик')
+        self.assertContains(response, 'Medovik')
