@@ -1,6 +1,5 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from unicodedata import category
 
 from .models import Category, Product
 from decimal import Decimal
