@@ -13,7 +13,7 @@ class CatalogTest(TestCase):
             slug='torty'
         )
         self.product = Product.objects.create(
-            name='Medovik',
+            name='Медовик',
             slug='medovik',
             category=self.category,
             price=Decimal('1000.00'),
